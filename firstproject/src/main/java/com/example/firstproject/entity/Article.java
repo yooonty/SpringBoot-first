@@ -1,8 +1,15 @@
 package com.example.firstproject.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
 
 @Entity // DB가 해당 객체를 인식 가능!
+@AllArgsConstructor
+@NoArgsConstructor // 디폴트 생성자 추가!
+@ToString
 public class Article {
 
     // Entity는 자바객체(ex.dto)를 DB가 이해할 수 있도록 규격화된 데이터
@@ -16,18 +23,4 @@ public class Article {
     @Column
     private String content;
 
-    public Article(Long id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-    }
-
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
-    }
 }
